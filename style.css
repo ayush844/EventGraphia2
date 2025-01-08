@@ -1,11 +1,107 @@
-h1 {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: #f4f4f8;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 19rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 0;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.sidebar .logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.sidebar .logo h1 {
+  font-size: 1.8rem;
+  color: black;
+}
+
+.sidebar .sidebar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.sidebar .sidebar-group h2 {
+  align-items: flex-start;
+  margin-left: 2rem;
+  font-size: 1rem;
+  color: #aeb5c1;
+}
+
+.sidebar .sidebar-group ul {
+  list-style: none;
+  margin-top: 1.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.sidebar .sidebar-group ul li {
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  gap: 0.625rem;
+}
+
+.sidebar .sidebar-group ul li:has(a.active) {
+  border-right: 3px solid #e74c3c; /* Highlight the active item */
+}
+
+.sidebar .sidebar-group ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  color: #aeb5c1;
+  font-weight: bold;
+}
+
+.sidebar .sidebar-group ul li a.active {
+  color: black;
+  font-weight: bolder;
+}
+
+/* h1 {
   color: red;
-  font-size: 50px;
+  font-size: 3.125rem;
 }
 
 div {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-}
+  gap: 0.625rem;
+} */
