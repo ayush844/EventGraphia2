@@ -1,0 +1,11 @@
+h1 {
+  color: red;
+  font-size: 50px;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
