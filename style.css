@@ -14,13 +14,17 @@ body {
   overflow-x: hidden;
 }
 
+/* logo for small screen */
 .small-logo {
   display: none;
   width: 4rem;
   height: 4rem;
 }
 
-/* Base Sidebar Styles */
+/*-----------------------------------------------------------------------------------*/
+/* left Sidebar */
+
+/* Base left Sidebar Styles */
 .sidebar {
   width: 19rem;
   background-color: #fff;
@@ -57,7 +61,6 @@ body {
   cursor: pointer;
 }
 
-/* Logo Styles */
 .sidebar .logo {
   display: flex;
   align-items: center;
@@ -80,7 +83,6 @@ body {
   color: #df0c0c;
 }
 
-/* Sidebar Group */
 .sidebar .sidebar-group {
   display: flex;
   flex-direction: column;
@@ -132,25 +134,22 @@ body {
   font-weight: bolder;
 }
 
-/* RESPONSIVENESS */
+/* making left sidebar responsive */
 
 @media (max-width: 1200px) {
   .sidebar {
     transform: translateX(-100%);
   }
 
-  /* Show Hamburger Menu */
   .menu-toggle-label {
     display: block;
   }
 
-  /* When Checkbox is Checked, Show Sidebar */
   #menu-toggle:checked + .menu-toggle-label + .sidebar {
     transform: translateX(0);
   }
 }
 
-/* Small Screens (Mobile Devices, 480px and below) */
 @media (max-width: 480px) {
   .sidebar {
     width: 15rem;
@@ -192,10 +191,13 @@ body {
     margin-bottom: 3.3rem;
   }
 }
+
+/*-----------------------------------------------------------------------------------*/
+
 /*-----------------------------------------------------------------------------------*/
 /* right Sidebar */
 
-/* Right Sidebar Styles */
+/* Base Right Sidebar Styles */
 .right-sidebar {
   width: 19rem;
   background-color: #fff;
@@ -402,12 +404,10 @@ body {
   font-size: 14px;
 }
 
-/* Hidden checkbox to toggle right sidebar */
 .toggle-sidebar {
   display: none;
 }
 
-/* Label to show the toggle icon */
 .sidebar-toggle-label {
   position: fixed;
   top: 1rem;
@@ -416,7 +416,7 @@ body {
   cursor: pointer;
 }
 
-/* Make it responsive for mobile */
+/* Making right sidebar responsive */
 
 @media (max-width: 1200px) {
   .sidebar-toggle-label {
@@ -464,7 +464,6 @@ body {
   }
 }
 
-/* right Sidebar */
 /*-----------------------------------------------------------------------------------*/
 
 /* main content */
@@ -795,6 +794,8 @@ body {
 .main-content .artists-section .artists-container .artist.keanu {
   background-image: url("https://m.media-amazon.com/images/I/41VDCjE9fQL.jpg");
 }
+
+/* Making main content responsive */
 
 @media (max-width: 1200px) {
   .main-content {
