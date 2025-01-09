@@ -9,10 +9,11 @@ body {
   display: flex;
   background-color: #f4f4f8;
   color: #333;
-  overflow-y: hidden;
+
+  position: relative;
 }
 
-/* left Sidebar */
+/* Base Sidebar Styles */
 .sidebar {
   width: 19rem;
   background-color: #fff;
@@ -20,15 +21,36 @@ body {
   border-right: 1px solid #ddd;
   height: 100%;
   min-height: 100vh;
+  padding-right: 0;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-right: 0;
+  overflow-y: auto;
 
-  overflow-y: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1200;
+
+  transition: transform 0.3s ease-in-out;
 }
 
+.menu-toggle-label {
+  display: none;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2000;
+  background-color: #df0c0c;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Logo Styles */
 .sidebar .logo {
   display: flex;
   align-items: center;
@@ -51,6 +73,7 @@ body {
   color: #df0c0c;
 }
 
+/* Sidebar Group */
 .sidebar .sidebar-group {
   display: flex;
   flex-direction: column;
@@ -102,7 +125,55 @@ body {
   font-weight: bolder;
 }
 
+/* RESPONSIVENESS */
+
+@media (max-width: 1200px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* Show Hamburger Menu */
+  .menu-toggle-label {
+    display: block;
+  }
+
+  /* When Checkbox is Checked, Show Sidebar */
+  #menu-toggle:checked + .menu-toggle-label + .sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Small Screens (Mobile Devices, 480px and below) */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 15rem;
+  }
+
+  .menu-toggle-label {
+    font-size: 1.2rem;
+  }
+
+  .sidebar .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .sidebar .sidebar-group h2 {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .sidebar .sidebar-group ul li {
+    padding-left: 1rem;
+  }
+
+  .sidebar .sidebar-group ul li a {
+    font-size: 0.9rem;
+  }
+}
+/*-----------------------------------------------------------------------------------*/
 /* right Sidebar */
+
+/* Right Sidebar Styles */
 .right-sidebar {
   width: 19rem;
   background-color: #fff;
@@ -110,13 +181,37 @@ body {
   border-left: 1px solid #ddd;
   height: 100%;
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
   overflow-y: hidden;
+  transition: transform 0.3s ease-in-out;
+
+  overflow-y: auto;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.sidebar-toggle-label {
+  display: none;
+  font-size: 1rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: fit-content;
+  z-index: 2000;
+  background-color: black;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  border-radius: 100%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
 }
 
 .right-sidebar .search-container {
@@ -285,6 +380,71 @@ body {
   font-size: 14px;
 }
 
+/* Hidden checkbox to toggle right sidebar */
+.toggle-sidebar {
+  display: none;
+}
+
+/* Label to show the toggle icon */
+.sidebar-toggle-label {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Make it responsive for mobile */
+
+@media (max-width: 1200px) {
+  .sidebar-toggle-label {
+    display: block;
+  }
+
+  .right-sidebar {
+    width: 15rem;
+    position: fixed;
+    top: 0;
+    /* right: -100%; */
+    transform: translateX(100%);
+    z-index: 1100;
+
+    padding-top: 5rem;
+  }
+
+  .sidebar-toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+  }
+
+  #toggle-right-sidebar:checked + .right-sidebar {
+    transform: translateX(0);
+  }
+
+  /* Adjust styles for smaller screens */
+  .right-sidebar .search-container input {
+    font-size: 0.9rem;
+  }
+
+  .right-sidebar .movie-sectioncontainer .movie-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .right-sidebar .movie-sectioncontainer .movie-section .card-container {
+    flex-direction: column;
+  }
+}
+
+/* right Sidebar */
+/*-----------------------------------------------------------------------------------*/
+
 /* main content */
 
 .main-content {
@@ -292,6 +452,30 @@ body {
   padding: 2rem 4rem;
   overflow-y: auto;
   background-color: #fff;
+  margin-left: 18rem;
+  margin-right: 19rem;
+}
+
+@media (max-width: 1200px) {
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 2rem 1rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .main-content .nav-container {

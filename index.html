@@ -13,6 +13,9 @@
     ></script>
   </head>
   <body>
+    <input type="checkbox" id="menu-toggle" style="display: none" />
+    <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+
     <!-- left sidebar -->
     <div class="sidebar">
       <div class="logo">
@@ -263,6 +266,9 @@
       </div>
     </div>
 
+    <!-- Hidden Checkbox for Right Sidebar -->
+    <input type="checkbox" id="toggle-right-sidebar" class="toggle-sidebar" />
+
     <!-- Sidebar Content -->
     <div class="right-sidebar">
       <div class="search-container">
@@ -397,5 +403,10 @@
         </div>
       </div>
     </div>
+
+    <!-- Label to Open Right Sidebar -->
+    <label for="toggle-right-sidebar" class="sidebar-toggle-label"
+      ><i class="fas fa-search fa-2xs" style="color: #f31616"></i
+    ></label>
   </body>
 </html>
